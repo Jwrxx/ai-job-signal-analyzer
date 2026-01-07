@@ -16,40 +16,61 @@ st.markdown("""
 <style>
 /* App background */
 .stApp {
-    background-color: #f6f7fb;
+    background-color: #001233;  /* deep dark base */
+    color: #979dac;
 }
 
-/* Card style */
+/* Card containers */
 .card {
-    background: white;
+    background: #002855;
     border-radius: 14px;
-    padding: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    padding: 18px;
     margin-bottom: 18px;
-    border: 1px solid rgba(15, 23, 42, 0.06);
+    border: 1px solid rgba(255,255,255,0.08);
 }
 
 /* Section headers */
 .section-title {
-    font-size: 1.05rem;
-    font-weight: 650;
+    font-size: 1.06rem;
+    font-weight: 600;
     margin-bottom: 10px;
+    color: #e5e7eb;
 }
 
 /* Muted text */
 .muted {
-    color: #6b7280;
+    color: #5c677d;
     font-size: 0.92rem;
+}
+
+/* Inputs */
+textarea, input {
+    background-color: #001845 !important;
+    color: #e5e7eb !important;
+    border-radius: 8px !important;
+    border: 1px solid #33415c !important;
 }
 
 /* Buttons */
 .stButton > button {
-    border-radius: 10px;
-    padding: 0.6rem 1rem;
-    font-weight: 650;
+    background-color: #0466c8;
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    border: none;
+}
+
+.stButton > button:hover {
+    background-color: #0353a4;
+}
+
+/* Streamlit header (optional) */
+header, footer {
+    background-color: #001233 !important;
 }
 </style>
 """, unsafe_allow_html=True)
+
 
 
 st.title("🧠 AI Job Signal Analyzer")
