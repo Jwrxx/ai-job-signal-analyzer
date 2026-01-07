@@ -12,6 +12,46 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 st.set_page_config(page_title="AI Job Signal Analyzer", page_icon="🧠", layout="centered")
 
+st.markdown("""
+<style>
+/* App background */
+.stApp {
+    background-color: #f6f7fb;
+}
+
+/* Card style */
+.card {
+    background: white;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    margin-bottom: 18px;
+    border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+/* Section headers */
+.section-title {
+    font-size: 1.05rem;
+    font-weight: 650;
+    margin-bottom: 10px;
+}
+
+/* Muted text */
+.muted {
+    color: #6b7280;
+    font-size: 0.92rem;
+}
+
+/* Buttons */
+.stButton > button {
+    border-radius: 10px;
+    padding: 0.6rem 1rem;
+    font-weight: 650;
+}
+</style>
+""", unsafe_allow_html=True)
+
+
 st.title("🧠 AI Job Signal Analyzer")
 st.caption("Paste a job description + your profile text. Get recruiter-grade signals, risks, and next steps.")
 
