@@ -71,7 +71,7 @@ header, footer {
 </style>
 """, unsafe_allow_html=True)
 
-def card_start(title str, subtitle:str | None = None):
+def card_start(title: str, subtitle:str | None = None):
     st.markdown('<div class="card">', unsafe_allow_html=True)
     st.markdown(f'<div class="section-title">{title}</div>', unsafe_allow_html=True)
     if subtitle:
@@ -86,12 +86,15 @@ st.caption("Paste a job description + your profile text. Get recruiter-grade sig
 # Quick debug indicator (you can remove later)
 key_loaded = bool(os.getenv("OPENAI_API_KEY"))
 
+card_start("Inputs", "Paste a job description and your profile, then run analysis.")
 
 job_desc = st.text_area("Job Description", height=220, placeholder="Paste the job description here...")
 profile = st.text_area("Your Profile (resume text or project summary)", height=220,
                        placeholder="Paste your resume text or a short summary of your skills/projects...")
 
-run = st.button("Analyze Signals")
+run = st.button("Analyze Signals", type="primary", use_container_width=True)
+
+card_end()
 
 SYSTEM_PROMPT = """
 You are a senior technical recruiter and hiring engineer.
@@ -137,6 +140,8 @@ Return JSON ONLY using this schema (no extra keys):
 
 
 if run:
+    card_start("Results", "Recruiter-grade signals, risks, and next steps.")
+
     if not job_desc.strip() or not profile.strip():
         st.error("Please paste both the job description and your profile text.")
     elif not key_loaded:
@@ -172,9 +177,11 @@ if run:
                 "Download JSON report",
                 data=json.dumps(data, indent=2),
                 file_name="job_signal_report.json",
-                mime="application/json"
+                mime="application/json"          
             )
 
         except Exception:
             st.warning("AI returned non-JSON output. Showing raw output below:")
             st.code(raw)
+
+    card_end()            
