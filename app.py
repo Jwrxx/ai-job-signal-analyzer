@@ -71,7 +71,14 @@ header, footer {
 </style>
 """, unsafe_allow_html=True)
 
+def card_start(title str, subtitle:str | None = None):
+    st.markdown('<div class="card">', unsafe_allow_html=True)
+    st.markdown(f'<div class="section-title">{title}</div>', unsafe_allow_html=True)
+    if subtitle:
+        st.markdown(f'<div class="muted">{subtitle}</div>', unsafe_allow_html=True)
 
+def card_end():
+    st.markdown("</div>", unsafe_allow_html=True)
 
 st.title("🧠 AI Job Signal Analyzer")
 st.caption("Paste a job description + your profile text. Get recruiter-grade signals, risks, and next steps.")
